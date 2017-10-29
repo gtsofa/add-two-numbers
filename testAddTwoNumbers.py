@@ -10,11 +10,17 @@ class TestAddNumbers(unittest.TestCase):
         self.calc = Addition()
     def test_add_two_numbers_method_return_correct_results(self):
         # result = 2 + 2
-        result = self.calc.addNumbers(2,2)
+        result = self.calc.addNumbers(2,'three')
         self.assertEqual(4, result)
 
     def test_addition_returns_error_message_if_inputs_are_not_numbers(self):
-        self.assertRaises(ValueError, self.calc.addNumbers, 'two', 'six')
+        self.assertRaises(ValueError, self.calc.addNumbers, 'two', 'three')
+
+    def test_addition_returns_error_message_if_a_is_not_number(self):
+        self.assertRaises(ValueError, self.calc.addNumbers, 'two', 3)
+
+    def test_addition_returns_error_message_if_a_is_not_number(self):
+        self.assertRaises(ValueError, self.calc.addNumbers, 2, 'three')
     # def test_is_an_integer(self):
     #     type(self) == int
     # def test_subtraction(self):
