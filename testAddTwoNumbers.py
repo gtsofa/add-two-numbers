@@ -3,11 +3,18 @@ import unittest
 
 from addTwoNumbers import Addition
 
-class TestDivideNumbers(unittest.TestCase):
+class TestAddNumbers(unittest.TestCase):
     """Test adding two numbers functionality"""
+    def setUp(self):
+        """we need the Addition object to be avaible in each test case hence we initialize setUp method."""
+        self.calc = Addition()
     def test_add_two_numbers_method_return_correct_results(self):
-        result = 2 + 2
+        # result = 2 + 2
+        result = self.calc.addNumbers(2,2)
         self.assertEqual(4, result)
+
+    def test_addition_returns_error_message_if_inputs_are_not_numbers(self):
+        self.assertRaises(ValueError, self.calc.addNumbers, 'two', 'six')
     # def test_is_an_integer(self):
     #     type(self) == int
     # def test_subtraction(self):

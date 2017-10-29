@@ -1,4 +1,8 @@
 class Addition(object):
     def addNumbers(self, a, b):
-        result = a + b
-        return result
+        number_types = (int, float, complex)
+
+        if isinstance(a, number_types) and isinstance(b, number_types):
+            return a + b
+        else:
+            raise ValueError
